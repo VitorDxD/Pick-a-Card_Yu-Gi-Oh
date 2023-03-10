@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+:root {
+  --primary-color: rgb(145, 93, 48);
+  --primary-color-darker: rgb(117, 76, 40);
+}
+
+* {
+  box-sizing: border-box;
+  outline: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--primary-color);
+  font-family: 'Open sans', sans-serif;
+  font-size: 1.3em;
+  line-height: 1.5em;
+}
+
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px;
+}
+
+#logo{
+  height: 3em;
+}
+
+#search-field{
+  height: 3em;
+  padding: 1em;
+  border: none;
+  border-radius: 10px;
+}
+
+.hidde{
+  display: none;
+}
+
+#search{
+  font-size: 1.5em;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.container {
+  max-width: 640px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#btnDraw {
+  border: none;
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
+}
+
+#btnDraw:hover {
+  background: var(--primary-color-darker);
+}
+
+h1{
+  text-align: center;
+}
+
+#img-container{
+  display: flex;
+  justify-content: center;
+  height: 20em;
+}
+
+#cardImg{
+  height: 100%;
+}
+
+@media (max-width: 390px){
+  header{
+    flex-direction: column;
+  }
+  #logo{
+    margin-bottom: 1em;
+  }
+
+  @media (max-width: 300px){
+    #img-container{
+      height: 15em;
+    }
+  }
+}

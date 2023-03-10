@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pick-a-Card</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header>
+    <img src="../../src/assets/img/logo.png" alt="Logo Yu-Gi-Oh" id="logo">
+
+    <div>
+      <input type="text" placeholder="Busque a carta aqui..." autocomplete="off" id="search-field" class="hidde">
+      <button id="search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </div>
+  </header>
+
+  <section class="container">
+    <h1 id="card-title">DRAW A CARD</h1>
+
+    <div id="img-container">
+      <img src="../../src/assets/img/back.png" alt="Ilustração da carta" id="cardImg">
+    </div>
+
+    <p id="card-description"></p>
+
+    <button id="btnDraw">Draw</button>
+  </section>
+
+  <script src="./js/bundle.js"></script>
+</body>
+
+</html>
