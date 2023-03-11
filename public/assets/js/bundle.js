@@ -21282,54 +21282,56 @@ var __webpack_exports__ = {};
   !*** ./src/main.js ***!
   \*********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var core_js_stable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/stable */ "./node_modules/core-js/stable/index.js");
-/* harmony import */ var core_js_stable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_stable__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
-/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _assets_css_style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/css/style.css */ "./src/assets/css/style.css");
+/* harmony import */ var _assets_css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/css/style.css */ "./src/assets/css/style.css");
+/* harmony import */ var core_js_stable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/stable */ "./node_modules/core-js/stable/index.js");
+/* harmony import */ var core_js_stable__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_stable__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
+/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
-var title = document.querySelector('#card-title');
-var img = document.querySelector('#cardImg');
-var description = document.querySelector('#card-description');
-var btnDraw = document.querySelector('#btnDraw');
-var btnSearch = document.querySelector('#search');
-var field = document.querySelector('#search-field');
-function generateRandom() {
-  fetch('https://db.ygoprodeck.com/api/v7/randomcard.php').then(function (response) {
-    return response.json();
-  }).then(function (json) {
-    title.innerText = json.name;
-    img.src = json.card_images[0].image_url;
-    description.innerText = json.desc;
-  });
-}
-function generate(dado) {
-  fetch(dado).then(function (response) {
-    return response.json();
-  }).then(function (json) {
-    field.value = '';
-    title.innerText = json.data[0].name;
-    img.src = json.data[0].card_images[0].image_url;
-    description.innerText = json.data[0].desc;
-  })["catch"](function () {
-    alert('A carta não existe no nosso banco de dados.');
-  });
-}
-function hiddeShow() {
-  field.classList.toggle('hidde');
-  btnSearch.classList.toggle('hidde');
-}
-btnDraw.addEventListener('click', generateRandom);
-btnSearch.addEventListener('mouseover', hiddeShow);
-field.addEventListener('mouseout', hiddeShow);
-field.addEventListener('keypress', function (e) {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    var dado = "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=".concat(field.value);
-    generate(dado);
+$(document).ready(function () {
+  var title = document.querySelector('#card-title');
+  var img = document.querySelector('#cardImg');
+  var description = document.querySelector('#card-description');
+  var btnDraw = document.querySelector('#btnDraw');
+  var btnSearch = document.querySelector('#search');
+  var field = document.querySelector('#search-field');
+  function generateRandom() {
+    fetch('https://db.ygoprodeck.com/api/v7/randomcard.php').then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      title.innerText = json.name;
+      img.src = json.card_images[0].image_url;
+      description.innerText = json.desc;
+    });
   }
+  function generate(dado) {
+    fetch(dado).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      field.value = '';
+      title.innerText = json.data[0].name;
+      img.src = json.data[0].card_images[0].image_url;
+      description.innerText = json.data[0].desc;
+    })["catch"](function () {
+      alert('A carta não existe no nosso banco de dados.');
+    });
+  }
+  function hiddeShow() {
+    field.classList.toggle('hidde');
+    btnSearch.classList.toggle('hidde');
+  }
+  btnDraw.addEventListener('click', generateRandom);
+  btnSearch.addEventListener('mouseover', hiddeShow);
+  field.addEventListener('mouseout', hiddeShow);
+  field.addEventListener('keypress', function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      var dado = "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=".concat(field.value);
+      generate(dado);
+    }
+  });
 });
 })();
 
